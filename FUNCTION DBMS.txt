@@ -7,7 +7,6 @@ BEGIN
 END abc;
 /
 
-
 DECLARE
     c NUMBER(5);
 BEGIN
