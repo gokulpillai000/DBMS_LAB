@@ -15,3 +15,19 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Total No: of employees: ' || c);
 END;
 /
+
+
+PROCEDURE
+CREATE OR REPLACE PROCEDURE count_employees (c OUT NUMBER) AS
+BEGIN
+    SELECT COUNT(*) INTO c FROM employee;
+END count_employees;
+/
+
+DECLARE
+    c NUMBER(5);
+BEGIN
+    count_employees(c);
+    DBMS_OUTPUT.PUT_LINE('Total No: of employees: ' || c);
+END;
+/
