@@ -1,0 +1,17 @@
+CREATE OR REPLACE FUNCTION abc
+RETURN NUMBER AS
+    c NUMBER(10);
+BEGIN
+    SELECT COUNT(*) INTO c FROM employee;
+    RETURN c;
+END abc;
+/
+
+
+DECLARE
+    c NUMBER(5);
+BEGIN
+    c := abc();
+    DBMS_OUTPUT.PUT_LINE('Total No: of employees: ' || c);
+END;
+/

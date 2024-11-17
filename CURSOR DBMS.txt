@@ -1,0 +1,15 @@
+declare
+	cname employee.ename%type;
+	cage employee.age%type;
+	cursor c1 is select ename,age from employee where city='&c';
+begin
+open c1;
+loop
+	fetch c1 into cname,cage;
+	exit when c1%notfound;
+	dbms_output.put_line('Ename is '||cname);
+	dbms_output.put_line('Age is '||cage);
+end loop;
+close c1;
+end;
+/

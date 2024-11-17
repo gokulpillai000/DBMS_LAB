@@ -1,0 +1,21 @@
+CREATE OR REPLACE PACKAGE circle_pkg IS
+    PROCEDURE area_circle (radius IN NUMBER, area OUT NUMBER);
+END circle_pkg;
+/
+
+CREATE OR REPLACE PACKAGE BODY circle_pkg IS
+    PROCEDURE area_circle (radius IN NUMBER, area OUT NUMBER) IS
+    BEGIN
+        area := 3.14 * radius * radius;
+    END area_circle;
+END circle_pkg;
+/
+
+DECLARE
+    radius NUMBER(4,2) := &RADIUS;
+    area NUMBER(8,2);
+BEGIN
+    circle_pkg.area_circle(radius, area);
+    DBMS_OUTPUT.PUT_LINE('Area of the circle is ' || area);
+END;
+/
